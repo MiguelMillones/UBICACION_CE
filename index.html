@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escáner Almacén Offline</title>
+  <!-- Enlace al Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1a73e8">
+  
+  <!-- Librería de escaneo QR -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  
+  <style>
+    /* Tus estilos aquí (puedes reutilizar los que ya tienes) */
+    body { font-family: sans-serif; padding: 16px; background: #f0f2f5; }
+    #reader { width: 100%; max-width: 500px; margin: 0 auto; border-radius: 10px; overflow: hidden; display: none; }
+    /* ... resto de estilos ... */
+  </style>
+</head>
+<body>
+  <h1>📍 Ubicación de Cajas</h1>
+  
+  <div id="reader"></div>
+  <button id="btn-camera" onclick="iniciarCamara()">📷 Abrir Cámara</button>
+  
+  <input type="text" id="codigo-manual" placeholder="O escribe el código aquí">
+  <button onclick="buscarUbicacion(document.getElementById('codigo-manual').value)">🔍 Buscar</button>
+  
+  <div id="resultado"></div>
+
+  <!-- Tu lógica de la App -->
+  <script src="app.js"></script>
+  <!-- Registro del Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js');
+      });
+    }
+  </script>
+</body>
+</html>
