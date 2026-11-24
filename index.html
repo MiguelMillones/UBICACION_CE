@@ -212,11 +212,11 @@
         // Renderizar éxito
         let html = `
           <div class="local">📍 ${data.local}</div>
-          <div class="total">📦 ${data.totalCajas} cajas en ${data.ubicaciones.length} ubicación(es)</div>
+          <div class="total">📦 ${data.totalCajas} mesas en ${data.ubicaciones.length} ubicación(es)</div>
           <div class="caja-escaneada">
             <b>Caja escaneada:</b> ${data.cajaEscaneada.codigo}<br>
-            <b>Su ubicación:</b> Estante ${data.cajaEscaneada.estante} · 
-            Nivel ${data.cajaEscaneada.nivel} · Posición ${data.cajaEscaneada.posicion}
+            <b>Su ubicación:</b> Distrito ${data.cajaEscaneada.estante} · 
+            CP ${data.cajaEscaneada.nivel} · Zona ${data.cajaEscaneada.posicion}
           </div>
         `;
 
@@ -224,8 +224,8 @@
           html += `
             <div class="ubicacion">
               <div class="titulo">
-                🗄️ Estante ${u.estante} · Nivel ${u.nivel}
-                <span class="badge">${u.cantidad} cajas</span>
+                🗄️ Distrito ${u.estante} · CP ${u.nivel}
+                <span class="badge">${u.cantidad} mesas</span>
               </div>
               <div class="detalle">
                 📦 Posiciones <b>${u.posDesde}</b> a <b>${u.posHasta}</b><br>
